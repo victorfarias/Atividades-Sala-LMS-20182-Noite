@@ -1,0 +1,37 @@
+#titulo1{
+    color: red;
+}
+
+#titulo2{
+    color: blue;
+}
+
+.titulo-amarelo, .fonte-amarela{
+    color: yellow;
+}
+
+.fonte-grande{
+    font-size: 60px;
+    color: blue;
+}
+
+article h1{
+    font-size: 60px;
+}
+
+.secao1 h2{
+    color: pink;
+}
+
+#id-secao2 h2{
+    color: gray;
+}
+
+article h2{
+    font-size: 15px;
+}
+
+article > h2{
+    font-size: 30px;
+}
+
