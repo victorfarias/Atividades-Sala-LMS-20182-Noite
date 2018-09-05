@@ -1,0 +1,23 @@
+.div1{
+    height: 50vh;
+    width: 50vw;
+    background-color: black;
+}
+
+.div2{
+    height: 2cm;
+    width: 50%;
+    background-color: green;
+}
+
+.div3{
+    height: 50%;
+    width: 50%;
+    background-color: blue;
+}
+
+h2{
+    font-size: 3em;
+}
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .div1,
+        .div2,
+        .div3,
+        .div4 {
+            width: 200px;
+            height: 200px;
+        }
+
+        .pilha{
+            background-color: pink;
+            overflow: hidden;
+            /* Considera elementos float para o cálculo da altura */
+        }
+
+        .div1 {
+            background-color: blue;
+            float: left;
+        }
+
+        .div2 {
+            background-color: black;
+            float: left;
+        }
+
+        .div3 {
+            background-color: yellow;
+            float: left;
+        }
+
+        .div4 {
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pilha">
+        <div class="div1"></div>
+        <div class="div2"></div>
+        <div class="div3"></div>
+        <!-- Elementos float não contabilizam para a altura do elemento -->
+    </div>
+    <div class="div4"></div>
+</body>
+
+</html>
