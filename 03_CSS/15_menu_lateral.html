@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .layout {
+            overflow: hidden;
+            /* Considera altura dos elementos float */
+            /* Clearfix */
+        }
+
+        .menu-lateral {
+            background-color: pink;
+            float: left;
+            width: 30%;
+        }
+
+        .container {
+            background-color: purple;
+            float: left;
+            width: 70%;
+        }
+
+        .menu-lateral ul {
+            list-style-type: none;
+        }
+
+        .menu-lateral ul li a{
+            text-decoration: none;
+            color: black;
+            display: block;
+            text-align: center;
+            padding: 5px;            
+        }
+        .menu-lateral ul li a:hover{
+            background-color: rgb(245, 75, 103);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout">
+        <nav class="menu-lateral">
+            <ul>
+                <li><a href="">HTML</a></li>
+                <li><a href="">CSS</a></li>
+                <li><a href="">JS</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            Conteúdo
+        </div>
+    </div>
+
+</body>
+
+</html>
