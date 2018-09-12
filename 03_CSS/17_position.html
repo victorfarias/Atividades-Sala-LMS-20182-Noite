@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            height: 500px;
+            width: 500px;
+            border: 1px solid black;
+            margin: auto;
+            position: relative;
+        }
+
+        .tamanho200 {
+            width: 200px;
+            height: 200px;
+        }
+
+        .div1 {
+            background-color: blue;
+            position: static;
+        }
+
+        .div2 {
+            background-color: green;
+        }
+
+        .div3 {
+            background-color: blue;
+            position: relative;
+            /* OBS: O espaço ainda é ocupado pelo elemento */
+            top: 20px;
+            left: 400px;
+        }
+
+        .div4 {
+            background-color: green;
+        }
+
+        .div5 {
+            background-color: blue;
+            position: absolute;
+            /* OBS: Elemento perdeu o espaço */
+            /* OBS1: Ele se posiciona por padrão no lugar original */
+        }
+
+        .div6 {
+            background-color: green;
+        }
+        .div7{
+            background-color: blue;
+        }
+        .div8{
+            background-color: green;
+            position: absolute;
+            /* OBS2: Posiciona em relação ao ancestral mais próximo com position definido */
+            right:10px;
+            bottom: 20%;
+        }
+        .div9{
+            background-color: blue;
+            position: fixed;
+            /* OBS: Perdeu o espaço */
+            left:60%;
+            bottom: 20%;
+        }
+        .div10{
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="div1 tamanho200">div1</div>
+        <div class="div2 tamanho200">div2</div>
+    </div>
+    <div class="container">
+        <div class="div3 tamanho200">div3</div>
+        <div class="div4 tamanho200">div4</div>
+    </div>
+    <div class="container">
+        <div class="div5 tamanho200">div5</div>
+        <div class="div6 tamanho200">div6</div>
+    </div>
+    <div class="container">
+        <div class="div7 tamanho200">div7</div>
+        <div class="div8 tamanho200">div8</div>
+    </div>
+    <div class="container">
+        <div class="div9 tamanho200">div9</div>
+        <div class="div10 tamanho200">div10</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header-fixo-superior{
+            background-color: aqua;
+            padding: 12px;
+            padding-left: 20px;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        .container{
+            height: 2000px;
+            position: relative;
+            top: 51px;
+            z-index: -100;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-fixo-superior">
+        <h2>
+            Meu site muito massa
+        </h2>
+    </header>
+    <div class="container">
+        Conteúdo
+    </div>
+</body>
+</html>
