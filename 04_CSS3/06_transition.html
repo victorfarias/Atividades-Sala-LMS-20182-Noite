@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .tamanho200{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+        .transition1{
+            transition: height 1s, width 1s;
+            transition-timing-function: ease-in-out;
+            transition-delay: 1s;
+        }
+        .transition1:hover{
+            height: 600px;
+            width: 600px;
+            transition-delay: 0s;
+
+        }
+        .transition2{
+            /* transform: rotateX(0deg); */
+            transition: transform 500ms linear 1s;
+        }
+        .transition2:hover{
+            transform: rotateX(180deg);
+        }
+        .transition3{
+            transform: rotate(20deg);
+        }
+        .transition3:hover{
+            transform: rotate(-20deg);
+            transition: transform 500ms;
+        }
+        .transition4{
+            transform: rotate(20deg);
+            transition: transform 500ms;
+        }
+        .transition4:hover{
+            transform: rotate(-20deg);
+            transition: transform 0ms;            
+        }
+        .transition5{
+            background-color: blue;
+            transition: background-color 500ms;
+        }
+        .transition5:hover{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="tamanho200 transition1">Transition 1</div>    
+    <div class="tamanho200 transition2">Transition 2</div>    
+    <div class="tamanho200 transition3">Transition 3</div>    
+    <div class="tamanho200 transition4">Transition 4</div>    
+    <div class="tamanho200 transition5">Transition 5</div>    
+    
+</body>
+</html>

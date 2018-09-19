@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .bola{
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(blue, pink);
+            border-radius: 50%;
+            transform: translate(300px, 300px) rotate(360deg);
+            animation-name: rotacionar-transladar;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes rotacionar-transladar{
+            0%{
+                transform: translate(0px, 0px) rotate(0deg);                
+            }
+            50%{
+                transform: translate(0px, 300px) rotate(0deg);
+            }
+            80%{
+                transform: translate(300px, 300px) rotate(360deg);
+            }
+            100%{
+                transform: translate(0px, 0px) rotate(0deg);                
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bola"></div>
+</body>
+</html>

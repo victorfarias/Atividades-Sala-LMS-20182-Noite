@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        .myButton {
+            border: none;
+            background: purple;
+            color: white;
+            padding: 20px;
+            font-size: 25px;
+            outline: none;
+            box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.45);
+            transition: transform 500ms, box-shadow 500ms;
+        }
+
+        .myButton:active {
+            box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.8);
+            transform: translate(4px, 4px);
+        }
+
+        .img-overlay {
+            position: relative;
+            display: inline-block;
+            /* Fazer o img-overlay não ocupar a largura inteira */
+        }
+
+        .img-overlay img {
+            height: 350px;
+            display: block;
+        }
+
+        .img-overlay .overlay {
+            width: 100%;
+            background-color: black;
+            color: white;
+            position: absolute;
+            /* Bizú para colocar uma div em cima de um elemento */
+
+            height: 0;
+            overflow: hidden;
+
+            opacity: 0;
+            transition: height 500ms, opacity 500ms;
+        }
+
+        .img-overlay:hover .overlay{
+            height: 100%;
+            opacity: 1;
+        }
+
+
+        .img-overlay .overlay .overlay-text{
+            font-size: 30px;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* Porcentagem do overlay */
+
+            transform: translate(-50%, -50%);
+            /* Porcentagem do próprio elemento */
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <button class="myButton">Clique-me</button>
+
+    <div>
+        <div class="img-overlay">
+            <div class="overlay">
+                <span class="overlay-text">Para que?</span>
+            </div>
+            <img src="./img/dog.jpg" alt="">
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

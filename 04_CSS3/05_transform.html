@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .tamanho200{
+            height: 200px;
+            width: 200px;
+            background: blue;
+            font-size: 30px;
+            margin: 50px;
+        }
+        .transform1{
+            transform: translate(100px, 50px);
+            /* position: relative; */
+            /* top: 50px; */
+            /* left: 100px; */
+
+            position: relative;
+            z-index: 10;
+        }
+        .transform1:hover{
+            transform: rotate(20deg);
+        }
+        .transform2{
+            transform: rotate(20deg);
+
+            position: relative;
+            z-index: 100;
+        }
+        .transform2:hover{
+            transform: rotate(-20deg);
+        }
+        .transform3{
+            transform: scale(0.4, 1.1);
+        }
+        .transform3:hover{
+            transform: scale(0.8, 1.3) rotate(20deg);
+        }
+        .transform4{
+            transform: skew(10deg, 30deg);
+        }
+        .transform5{
+            transform: rotateX(180deg);
+        }
+        .transform6{
+            transform: rotateY(180deg);
+        }
+        .transform7{
+            transform: rotateZ(90deg);
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="tamanho200 transform1">Transform 1</div>    
+    <div class="tamanho200 transform2">Transform 2</div>    
+    <div class="tamanho200 transform3">Transform 3</div>    
+    <div class="tamanho200 transform4">Transform 4</div>    
+    <div class="tamanho200 transform5">Transform 5</div>    
+    <div class="tamanho200 transform6">Transform 6</div>    
+    <div class="tamanho200 transform7">Transform 7</div>    
+
+</body>
+</html>
