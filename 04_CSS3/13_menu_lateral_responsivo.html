@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .cabecalho{
+            background: rgb(200,200,200);
+            padding: 15px;            
+        }
+        .navegador-superior{
+            background: rgb(180,180,180);
+        }
+        .menu-lateral > li > a{
+            text-decoration: none;
+            color: black;
+            display: block;
+            text-align: center;
+            padding: 10px;
+        }
+        .menu-lateral > li > a:hover{
+            background: rgb(160,160,160);
+        }
+        .conteudo{
+            padding: 20px;
+        }
+
+        @media screen and (min-width:780px){
+            .navegador-superior{
+                float:left;
+                width: 25%;
+                height: calc(100vh - 67px);
+                background: linear-gradient(rgb(200,200,200), white);
+            }
+            .conteudo{
+                float: left;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header class="cabecalho">
+        <h1>
+            Meu site show
+        </h1>
+    </header>
+    <div class="container">
+        <nav class="navegador-superior">
+            <ul class="menu-lateral">
+                <li><a href="">HTML</a></li>
+                <li><a href="">CSS</a></li>
+                <li><a href="">JS</a></li>
+            </ul>
+        </nav>
+        <div class="conteudo">
+            <h2>
+                Conteúdo
+            </h2>
+            <p>Mais alguma coisa</p>
+        </div>
+    </div>
+</body>
+</html>
