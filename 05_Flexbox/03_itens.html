@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            border: 5px green solid;
+        }
+
+        .tamanho200 {
+            font-size: 40px;
+            height: 200px;
+            width: 200px;
+            background-color: gold;
+            border: 5px solid black;
+        }
+
+        .item8 {
+            order: 100;
+        }
+
+        .item14 {
+            order: -10;
+        }
+
+        .item4 {
+            order: 80;
+            flex-shrink: 0.2;
+        }
+
+        .container2{
+            border: 5px solid green;
+            display: flex;
+        }
+
+        .grow1, .grow2, .grow3{
+            background: blue;
+            height: 200px;
+            border: 2px solid black;
+        }
+        .grow1{
+            flex-basis: 200px;
+        }
+        .grow2{
+            flex-grow: 2;
+        }
+        .grow3{
+            flex-grow: 3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="tamanho200">1</div>
+        <div class="tamanho200">2</div>
+        <div class="tamanho200">3</div>
+        <div class="tamanho200 item4">4</div>
+        <div class="tamanho200">5</div>
+        <div class="tamanho200">6</div>
+        <div class="tamanho200">7</div>
+        <div class="tamanho200 item8">8</div>
+        <div class="tamanho200">9</div>
+        <div class="tamanho200">10</div>
+        <div class="tamanho200">11</div>
+        <div class="tamanho200">12</div>
+        <div class="tamanho200">13</div>
+        <div class="tamanho200 item14">14</div>
+        <div class="tamanho200">15</div>
+    </div>
+
+    <div class="container2">
+        <div class="grow1">Grow 1</div>
+        <div class="grow2">Grow 2</div>
+        <div class="grow3">Grow 3</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .navegador-responsivo {
+            background: linear-gradient(rgb(200,200,200), white);
+            overflow: hidden;
+            float: left;
+            height: 100vh;
+            width: 25%;
+        }
+
+        .navegador-responsivo ul {
+            list-style-type: none;
+        }
+
+        .navegador-responsivo ul li a {
+            display: block;
+            /* float: left; */
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .navegador-responsivo ul li a:hover {
+            background: rgb(100, 100, 100);
+        }
+
+        .content {
+            float: left;
+            width: 75%;
+            height: 2000px;
+            text-align: center;
+        }
+
+        .accordeon .accordeon-titulo {
+            background-color: rgb(150, 150, 150);
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        .accordeon .accordeon-corpo {
+            background-color: rgb(240, 240, 240);
+            font-size: 20px;
+            max-height: 0px;
+            overflow: hidden;
+            transition: 1s;
+        }
+
+        .accordeon:hover .accordeon-corpo {
+            max-height: 400px;
+        }
+
+        .overlay {
+            display: inline-block;
+            margin: 20px;
+            position: relative;
+            transition: 500ms;
+        }
+
+        .overlay .dual img {
+            display: block;
+            float: left;
+            height: 100px;
+        }
+
+        .overlay .text {
+            display: block;
+            position: absolute;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            opacity: 0;
+            transition: 500ms;
+        }
+        .overlay .text:hover{
+            opacity: 1;
+        }
+        .overlay:hover{
+            transform: scale(1.2,1.2);
+        }
+        .overlay .text span{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @media screen and (max-width: 478px) {
+            .navegador-responsivo {
+                float: none;
+                width: 100%;
+                height: auto;
+            }
+
+            .navegador-responsivo ul li a {
+                float: left;
+            }
+
+            .content {
+                float: none;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navegador-responsivo">
+        <ul>
+            <li><a href="">HTML</a></li>
+            <li><a href="">CSS</a></li>
+            <li><a href="">JS</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div class="overlay">
+            <div class="text"><span>Overlay!!</span></div>
+            <div class="dual">
+                <img src="./img.jpg" alt="">
+                <img src="./img1.jpg" alt="">
+            </div>
+            <img src="./img2.png" style="width: 265px" alt="">
+            
+        </div>
+        <div class="overlay">
+            <div class="text"><span>Overlay!!</span></div>
+            <div class="dual">
+                <img src="./img.jpg" alt="">
+                <img src="./img1.jpg" alt="">
+            </div>
+            <img src="./img2.png" style="width: 265px" alt="">
+            
+        </div>
+        <div class="overlay">
+            <div class="text"><span>Overlay!!</span></div>
+            <div class="dual">
+                <img src="./img.jpg" alt="">
+                <img src="./img1.jpg" alt="">
+            </div>
+            <img src="./img2.png" style="width: 265px" alt="">
+        </div>
+        <div class="overlay">
+            <div class="text"><span>Overlay!!</span></div>
+            <div class="dual">
+                <img src="./img.jpg" alt="">
+                <img src="./img1.jpg" alt="">
+            </div>
+            <img src="./img2.png" style="width: 265px" alt="">
+        </div>
+        <div class="overlay">
+            <div class="text"><span>Overlay!!</span></div>
+            <div class="dual">
+                <img src="./img.jpg" alt="">
+                <img src="./img1.jpg" alt="">
+            </div>
+            <img src="./img2.png" style="width: 265px" alt="">
+        </div>
+        <div class="overlay">
+            <div class="text"><span>Overlay!!</span></div>
+            <div class="dual">
+                <img src="./img.jpg" alt="">
+                <img src="./img1.jpg" alt="">
+            </div>
+            <img src="./img2.png" style="width: 265px" alt="">
+        </div>
+
+    </div>
+</body>
+
+</html>

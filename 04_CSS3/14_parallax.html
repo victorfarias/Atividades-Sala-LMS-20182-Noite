@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <style>
+        .parallax1{
+            background: url("./img/got1.jpg");
+            background-attachment: fixed;
+            height: 100vh;
+        }
+        .parallax2{
+            background: url("./img/got2.jpg");
+            background-attachment: fixed;
+            height: 600px;
+        }
+        .parallax3{
+            background: url("./img/got1.jpg");
+            background-attachment: fixed;
+            height: 100vh;
+        }
+        .texto1, .texto2{
+            height: 300px;
+            font-size: 40px;
+            background: rgb(100,100,100);
+            position: relative;            
+        }
+        .texto1 span, .texto2 span{
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="parallax1"></div>
+    <div class="texto1">
+        <span>Mensagem impactante</span> 
+    </div>
+    <div class="parallax2"></div>
+    <div class="texto2">
+        <span>Mensagem de apoio</span>
+    </div>
+    <div class="parallax3"></div>
+
+</body>
+</html>

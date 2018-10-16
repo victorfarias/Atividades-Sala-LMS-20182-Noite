@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .navegador-responsivo {
+            background: linear-gradient(rgb(200, 200, 200), white);
+            overflow: hidden;
+        }
+
+        .navegador-responsivo ul {
+            list-style-type: none;
+        }
+
+        .navegador-responsivo ul li a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .navegador-responsivo ul li a:hover {
+            background: rgb(150, 150, 150);
+        }
+
+        @media screen and (min-width:478px) {
+            .navegador-responsivo {
+                float: left;
+                width: 25%;
+                height: 100vh;
+            }
+
+            .conteudo {
+                float: left;
+                width: 75%;
+            }
+        }
+
+        @media screen and (max-width:477px) {
+            .navegador-responsivo ul li a {
+                float: left;
+            }
+        }
+
+        .galeria {
+            text-align: center;
+        }
+
+        .colagem {
+            width: 403px;
+            display: inline-block;
+            margin: 30px;
+            position: relative;
+            transition: transform 500ms;
+        }
+
+        .colagem .primeira-linha img {
+            height: 150px;
+        }
+
+        .colagem .segunda-linha img {
+            width: 400px;
+        }
+
+        .colagem .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transition: opacity 500ms;
+        }
+
+        .colagem:hover .overlay {
+            opacity: 1;
+        }
+
+        .colagem:hover {
+            transform: scale(1.15, 1.15);
+        }
+
+        .colagem .overlay span {
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navegador-responsivo">
+        <ul>
+            <li><a href="">HTML</a></li>
+            <li><a href="">CSS</a></li>
+            <li><a href="">JS</a></li>
+        </ul>
+    </nav>
+    <div class="conteudo">
+        <div class="galeria">
+            <div class="colagem">
+                <div class="overlay">
+                    <span>
+                        Overlay!!
+                    </span>
+                </div>
+                <div class="primeira-linha">
+                    <img src="./img.jpg" alt="">
+                    <img src="./img1.jpg" alt="">
+                </div>
+                <div class="segunda-linha">
+                    <img src="./img2.png" alt="">
+                </div>
+            </div>
+            <div class="colagem">
+                <div class="overlay">
+                    <span>
+                        Overlay!!
+                    </span>
+                </div>
+                <div class="primeira-linha">
+                    <img src="./img.jpg" alt="">
+                    <img src="./img1.jpg" alt="">
+                </div>
+                <div class="segunda-linha">
+                    <img src="./img2.png" alt="">
+                </div>
+            </div>
+            <div class="colagem">
+                <div class="overlay">
+                    <span>
+                        Overlay!!
+                    </span>
+                </div>
+                <div class="primeira-linha">
+                    <img src="./img.jpg" alt="">
+                    <img src="./img1.jpg" alt="">
+                </div>
+                <div class="segunda-linha">
+                    <img src="./img2.png" alt="">
+                </div>
+            </div>
+            <div class="colagem">
+                <div class="overlay">
+                    <span>
+                        Overlay!!
+                    </span>
+                </div>
+                <div class="primeira-linha">
+                    <img src="./img.jpg" alt="">
+                    <img src="./img1.jpg" alt="">
+                </div>
+                <div class="segunda-linha">
+                    <img src="./img2.png" alt="">
+                </div>
+            </div>
+            <div class="colagem">
+                <div class="overlay">
+                    <span>
+                        Overlay!!
+                    </span>
+                </div>
+                <div class="primeira-linha">
+                    <img src="./img.jpg" alt="">
+                    <img src="./img1.jpg" alt="">
+                </div>
+                <div class="segunda-linha">
+                    <img src="./img2.png" alt="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

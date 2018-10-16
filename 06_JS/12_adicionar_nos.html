@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .meu-paragrafo{
+            background: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <button class="button-add">Adiciona parágrafos</button>
+    <div class="div1">
+        <p class="meu-paragrafo"> Alguma coisa</p>
+        <p class="meu-paragrafo">Outra coisa</p>
+    </div>
+    <script>
+        function add_paragrafo(){
+            let novo_paragrafo = document.createElement("p");
+            let texto_paragrafo = document.createTextNode("Meu novo parágrafo só o show");
+            novo_paragrafo.appendChild(texto_paragrafo);
+            novo_paragrafo.classList.add("meu-paragrafo");
+
+            let div1 = document.querySelector(".div1");
+            div1.appendChild(novo_paragrafo);
+        }
+
+        let button_add = document.querySelector(".button-add");
+        button_add.addEventListener("click", add_paragrafo);
+        
+
+
+    
+    </script>
+</body>
+</html>

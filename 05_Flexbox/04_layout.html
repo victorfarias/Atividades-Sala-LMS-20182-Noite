@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .flex{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+        }
+        .cabecalho{
+            background: tomato;
+            flex: 0 0 100%;
+            padding: 25px;
+        }
+        .navegador{
+            background: deepskyblue;
+            flex: 0 0 25%;
+        }
+        .navegador > ul{
+            list-style-type: none;
+        }
+        .conteudo{
+            background: gold;
+            /* padding: 20px; */
+            flex: 0 0 75%;
+        }
+        .rodape{
+            background: aqua;
+            flex: 0 0 100%;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex">
+        <header class="cabecalho">
+            <h1>Meu site com Flexbox</h1>
+        </header>
+        <nav class="navegador">
+            <ul>
+                <li><a href="">HTML</a></li>
+                <li><a href="">CSS</a></li>
+                <li><a href="">JS</a></li>
+                <li><a href="">JS</a></li>
+                <li><a href="">JS</a></li>
+                <li><a href="">JS</a></li>
+            </ul>
+        </nav>
+        <div class="conteudo">
+            <h2>Meu conteúdo</h2>
+        </div>
+        <footer class="rodape">Todos os direitos reservados</footer>
+    </div>
+    
+</body>
+</html>
