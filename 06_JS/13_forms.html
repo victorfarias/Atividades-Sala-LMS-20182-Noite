@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .to-do{
+            text-align: center;
+        }
+        .to-do .card{
+            width: 300px;
+            /* height: 200px;             */
+            display: inline-block;
+            margin: 30px;
+        }
+        .to-do .card .title{
+            background: rgb(4, 97, 128);
+            color: white;
+            padding: 12px;
+            font-size: 25px;
+            border-radius: 20px 20px 0px 0px;
+        }
+        .to-do .card .content{
+            box-sizing: border-box;
+            background: deepskyblue;
+            height: 160px;
+            padding: 20px;            
+            border-radius: 0 0 20px 20px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        Titulo: <input class="title-input" type="text"> <br>
+        Conteudo: <input class="content-input" type="text"> <br>
+        <button class="add-item">Adicionar item</button>
+    </form>
+    <div class="to-do">
+        <div class="card">
+            <div class="title">Minhas compras</div>
+            <div class="content">Leite, manteiga</div>
+        </div>
+        <div class="card">
+            <div class="title">Minhas compras</div>
+            <div class="content">Leite, manteiga</div>
+        </div>
+        <div class="card">
+            <div class="title">Minhas compras</div>
+            <div class="content">Leite, manteiga</div>
+        </div>
+        <div class="card">
+            <div class="title">Minhas compras</div>
+            <div class="content">Leite, manteiga</div>
+        </div>
+        
+    </div>
+    <script>
+        let title_input = document.querySelector(".title-input");
+        let content_input = document.querySelector(".content-input");
+        let add_item = document.querySelector(".add-item");
+        let to_do = document.querySelector(".to-do");
+
+        function addCard(title_input, content_input){
+            let title = document.createElement("div");
+            title.classList.add("title");
+            let title_text = document.createTextNode(title_input);
+            title.appendChild(title_text);
+
+            let content = document.createElement("div");
+            content.classList.add("content");
+            let content_text = document.createTextNode(content_input);
+            content.appendChild(content_text);
+
+            let card = document.createElement("div");
+            card.classList.add("card");
+            card.appendChild(title);
+            card.appendChild(content);
+
+            to_do.appendChild(card);
+        }
+
+        add_item.addEventListener("click", function(event){
+            event.preventDefault();
+            // Por padrão, o botão dispara o envio do formulário
+            // event.preventDefault() previnir que isso aconteça
+            addCard(title_input.value, content_input.   value);
+        })
+
+    </script>
+</body>
+</html>
