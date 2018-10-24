@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input class="input-todo" type="text"> <br>
+        <input class="radio" type="radio" name="type" value="trabalho" id="trabalho-input" checked> <label for="trabalho-input">Trabalho</label>  <br>
+        <input class="radio" type="radio" name="type" value="universidade" id="universidade-input"> <label for="universidade-input">Universidade</label> <br>
+        <input class="radio" type="radio" name="type" value="casa" id="casa-input"> <label for="casa-input">Casa</label>  <br>
+        <button class="submit">Submeter</button>
+    </form>
+    <ul class="todo-list">
+    </ul>
+    <script>
+        // 1. Fazer POST a partir do click
+        // 2. Fazer GET depois do POST
+        // 3. Preencher lista na interface com os dados do GET
+
+        let url = "http://rest.learncode.academy/api/victor/todo";
+        let todo_list = document.querySelector(".todo-list");
+        let button_submit = document.querySelector(".submit");
+        let input_todo = document.querySelector(".input-todo");
+        let radios = document.querySelectorAll(".radio");
+
+        function addItemTODOInterface(todo_text){
+            let li = document.createElement("li");
+            let li_text = document.createTextNode(todo_text);
+
+            li.appendChild(li_text);
+            todo_list.appendChild(li);
+        }
+
+        function getItems(){
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState==4){
+                    console.log("GET");
+                    let parsed_body = JSON.parse(xhttp.responseText);
+                    console.log(parsed_body);
+                    todo_list.innerHTML = "";
+                    for(let i=0; i<parsed_body.length; i++){
+                        addItemTODOInterface(parsed_body[i].text + " - " + parsed_body[i].type);
+                    }
+                    input_todo.value = "";
+                }
+            }
+            xhttp.open("GET", url, true);
+            xhttp.send();
+        }
+        getItems();
+
+
+        function postItem(todo_text, todo_type){
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState==4){
+                    console.log("POST");
+                    console.log(xhttp.responseText);
+                    getItems();
+                }
+            }
+            xhttp.open("POST", url, true);
+            xhttp.setRequestHeader("Content-type","application/json");
+            let item ={
+                text : todo_text,
+                type: todo_type
+            }
+            xhttp.send(JSON.stringify(item));
+        }
+        
+        button_submit.addEventListener("click", function(event){
+            event.preventDefault();            
+            for(let i=0; i<radios.length; i++){
+                if(radios[i].checked == true){
+                    postItem(input_todo.value, radios[i].value);
+                }
+            }
+        });
+        
+
+    </script>
+</body>
+</html>

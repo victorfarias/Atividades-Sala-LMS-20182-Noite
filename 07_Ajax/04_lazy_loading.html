@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .gallery{
+            width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+        .gallery img{
+            display: inline-block;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery"></div>
+    
+    <script>
+        let url = "https://jsonplaceholder.typicode.com/photos";
+        let gallery = document.querySelector(".gallery");
+        
+        function addImageGalleryInterface(thumbnailUrl){
+            let img = document.createElement("img");
+            img.src = thumbnailUrl;
+
+            gallery.appendChild(img);
+        }
+
+        function getImagesJSON(){
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState==4){
+                    let data = JSON.parse(xhttp.responseText);
+                    for(let i=0; i<21; i++){
+                        addImageGalleryInterface(data[i].thumbnailUrl);
+                    }
+                }
+            }
+            xhttp.open("GET", url, true);
+            xhttp.send();
+        }
+        getImagesJSON();
+    </script>
+</body>
+</html>
