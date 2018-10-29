@@ -1,50 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        .gallery{
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .gallery {
             width: 600px;
             margin: auto;
             text-align: center;
         }
-        .gallery img{
+
+        .gallery .gallery-item {
             display: inline-block;
             margin: 20px;
         }
+
+        .gallery .gallery-item .loading{
+            height: 110px;
+            width: 110px;
+            border-radius: 50%;
+            border: 20px solid rgba(0, 0, 0, 0.0);
+            border-right: 20px solid green; 
+            animation-name: rodar;
+            animation-iteration-count: infinite;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+        }
+        @keyframes rodar{
+            from{
+                transform: rotate(0deg);
+            }to{
+                transform: rotate(360deg);
+            }
+        }
+
+        .gallery img {
+            cursor: pointer;
+            display: none;
+        }
+
+        .modal {
+            position: fixed;
+            background: rgba(0, 0, 0, 0.7);
+            height: 100%;
+            width: 100%;
+            /* display: flex;
+            align-items: center;
+            justify-content: center; */
+            display: none;
+        }
+
+        .modal img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     </style>
 </head>
+
 <body>
-    <div class="gallery"></div>
-    
+    <div class="modal">
+        <img src="" alt="">
+    </div>
+    <div class="gallery">
+        <!-- <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="https://via.placeholder.com/150/f9cee5" alt="">
+        </div> -->
+    </div>
+
     <script>
         let url = "https://jsonplaceholder.typicode.com/photos";
         let gallery = document.querySelector(".gallery");
-        
-        function addImageGalleryInterface(thumbnailUrl){
+
+        function addImageGalleryInterface(thumbnailUrl, urlImage) {
             let img = document.createElement("img");
             img.src = thumbnailUrl;
 
-            gallery.appendChild(img);
+            let loading = document.createElement("div");
+            loading.classList.add("loading");
+
+            let gallery_item = document.createElement("div");
+            gallery_item.classList.add("gallery-item");
+
+            img.addEventListener("click", function () {
+                openModal(urlImage);
+            });
+
+            img.addEventListener("load", function(){
+                loading.style.display = "none";
+                img.style.display = "block";
+            })
+
+            gallery_item.appendChild(loading);
+            gallery_item.appendChild(img);
+
+            gallery.appendChild(gallery_item);
         }
 
-        function getImagesJSON(){
+        let modal = document.querySelector(".modal");
+        let img_modal = document.querySelector(".modal img");
+
+        function openModal(urlImage) {
+            modal.style.display = "block";
+            img_modal.src = urlImage;
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        modal.addEventListener("click", closeModal);
+
+        let data = null;
+        let current_image = 0;
+
+        function getImagesJSON() {
             let xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function(){
-                if(xhttp.readyState==4){
-                    let data = JSON.parse(xhttp.responseText);
-                    for(let i=0; i<21; i++){
-                        addImageGalleryInterface(data[i].thumbnailUrl);
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4) {
+                    data = JSON.parse(xhttp.responseText);
+                    for (let i = 0; i < 21; i++) {
+                        addImageGalleryInterface(data[i].thumbnailUrl, data[i].url);
                     }
+                    current_image = 21;
                 }
             }
             xhttp.open("GET", url, true);
             xhttp.send();
         }
         getImagesJSON();
+
+        window.addEventListener("scroll", function () {
+            console.log(window.pageYOffset);
+            console.log(window.innerHeight);
+            console.log(document.body.offsetHeight)
+            if (window.pageYOffset + window.innerHeight >= document.body.offsetHeight) {
+                for (let i = current_image; i < current_image + 21; i++) {
+                    addImageGalleryInterface(data[i].thumbnailUrl, data[i].url);
+                }
+                current_image += 21;
+            }
+        })
     </script>
 </body>
+
 </html>
