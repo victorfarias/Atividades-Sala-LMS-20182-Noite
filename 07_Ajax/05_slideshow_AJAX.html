@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .slideshow{
+            width: 600px;
+            height: 600px;
+            margin: auto;
+            position: relative;
+        }
+        .seta{
+            display: block;
+            padding: 10px;
+            background: rgba(0,0,0,0.4);
+            font-size: 50px;
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            cursor: pointer;
+            color: white;
+        }
+
+        .seta.direita{
+            right: 0;
+            border-radius: 10px 0 0 10px;
+        }
+        .seta.esquerda{
+            border-radius:0 10px 10px 0;
+        }
+        .slideshow .overlay{
+            text-align: center;
+            font-size: 20px;
+            color: white;
+            box-sizing: border-box;
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            width: 100%;
+            padding: 30px 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="slideshow">
+        <img class="slide-image" src="" alt="">
+        <span class="seta direita"> &gt; </span>
+        <span class="seta esquerda"> &lt; </span>
+        <div class="overlay"></div>
+    </div>
+    <script>
+        let url = "https://jsonplaceholder.typicode.com/photos";
+        const qtd_photos = 5;
+        let data = null;
+        
+        let slide_image = document.querySelector(".slideshow .slide-image");
+        let overlay = document.querySelector(".slideshow .overlay")
+        let current_slide = 0;
+        function goToSlide(i){
+            slide_image.src = data[i].url;
+            overlay.innerHTML = data[i].title;
+        }
+
+        function nextSlide(){
+            current_slide += 1;
+            if(current_slide >= qtd_photos){
+                current_slide = 0;
+            }
+            goToSlide(current_slide);
+        }
+
+        function previousSlide(){
+            current_slide -= 1;
+            if(current_slide < 0){
+                current_slide = qtd_photos - 1;
+            }
+            goToSlide(current_slide);
+        }
+
+        let seta_esquerda = document.querySelector(".slideshow .seta.esquerda");
+        let seta_direita = document.querySelector(".slideshow .seta.direita");
+        seta_direita.addEventListener("click", nextSlide);
+        seta_esquerda.addEventListener("click", previousSlide);
+
+        function getItemsHTTP(){
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState == 4){
+                    data = JSON.parse(xhttp.responseText);                    
+                    goToSlide(0);
+                }
+            }
+            xhttp.open("GET", url, true);
+            xhttp.send();
+            
+        }
+        getItemsHTTP();
+    </script>
+</body>
+</html>
